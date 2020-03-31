@@ -3,6 +3,6 @@ FROM httpd
 
 WORKDIR /usr/local/apache2/htdocs/
 
-COPY src/* .
+ADD src ./
 
 EXPOSE 80

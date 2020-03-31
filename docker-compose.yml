@@ -1,4 +1,4 @@
-vversion: '3.7'
+version: '3.7'
 
 
 volumes:
@@ -39,7 +39,7 @@ services:
     container_name: node
     hostname: node
   web: 
-    build: './frontend'
+    build: './frontend-jquery'
     restart: always
     networks:
       net:
