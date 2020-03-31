@@ -1,0 +1,148 @@
+section {
+    padding: 1rem;
+}
+
+.title {
+    text-decoration: underline;
+}
+
+.first {
+    .grid {
+        display: grid;
+        grid-gap: .5rem;
+        grid-template-columns: repeat(4, 1fr);
+    
+        &>* {
+            padding: 1.5rem;
+            border-radius: 1rem;
+            position: relative;
+            i {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                visibility: hidden;
+            }
+        }
+    }    
+}
+
+.thrid {
+    div {
+        
+        // display: flex;
+        border-bottom: 1px solid silver;
+        /*
+        h5 {
+            flex: 0 1 10%;
+            color: blue;
+        }
+    */
+
+        .grid {
+            display: grid;
+            grid-gap: .5rem;
+            grid-template-columns: repeat(13, 1fr);
+            grid-auto-rows: 3rem;
+            padding-bottom: .3rem;
+            padding-top: .3rem;
+         
+        
+            &>* {
+                padding: .5rem;
+                border-radius: 1rem;
+                position: relative;
+        
+                i {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    visibility: hidden;
+                }
+            }
+        }   
+    }
+ 
+}
+
+
+
+.brown {
+    background-color: brown;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.grey {
+    background-color: grey;
+}
+
+.violet {
+    background-color: violet;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.black {
+    background-color: black;
+}
+
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}
+
+.gold {
+    background-color: gold;
+}
+
+.silver {
+    background-color: silver;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.white {
+    background-color: white;
+}
+
+/**
+@media (min-width: 600px) {
+    .second_grid_secction {
+        display: grid;
+        grid-gap: .5rem;
+        grid-template-columns: 4fr repeat(7, 1fr);
+        padding-bottom: .3rem;
+        padding-top: .3rem;
+        border-bottom: 1px solid silver;
+
+        &>* {
+            padding: .5rem;
+            border-radius: 1rem;
+            position: relative;
+
+            i {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                visibility: hidden;
+            }
+        }
+    }
+}
+*/
