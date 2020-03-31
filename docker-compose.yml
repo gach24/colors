@@ -1,6 +1,43 @@
-version: '3.7'
+vversion: '3.7'
+
+
+volumes:
+    mongo-volume:
+      external:
+        name: mongo-volume
 
 services: 
+  db:
+    image: mongo:4.0
+    restart: always
+    networks:
+      net:
+        aliases:
+          - db
+    ports:
+      - "27017:27017"
+    container_name: db
+    hostname: db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: datadb
+    volumes:
+      - ./backend/mongo-dump:/docker-entrypoint-initdb.d
+      - mongo-volume:/data/db
+  node:
+    build: './backend'
+    networks:
+      net:
+        aliases:
+          - node
+    ports: 
+      - "8080:8080"
+    restart: always
+    depends_on:
+      - db
+    container_name: node
+    hostname: node
   web: 
     build: './frontend'
     restart: always
@@ -10,6 +47,8 @@ services:
           - web    
     ports: 
       - "80:80" 
+    depends_on:
+      - node
     container_name: web
     hostname: web   
 
