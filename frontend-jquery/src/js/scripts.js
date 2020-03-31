@@ -1,9 +1,16 @@
 
 
 $(function () {
-    $('.grid-item').on('click', function () {
-        console.log("click")
-        $('.grid-item i').css('visibility', 'hidden');
-        $(this).children().first().css('visibility', 'visible')
+    // Init seccion 1
+    $('.first i').hide();
+    $('.first .grid div').on('click', function() {
+        $('.first i').hide();
+        $(this).find('i').show();
+    });
+
+    // Init section 3
+    $('.thrid i').hide();
+    $('.thrid .options div').on('click', function() {
+        $(this).find('i').show();
     });
 });
