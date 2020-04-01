@@ -67,6 +67,13 @@ section {
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%); }
 
+button {
+  font-size: 3em; }
+
+footer {
+  text-align: center;
+  padding: 2rem; }
+
 .brown {
   background-color: brown; }
 

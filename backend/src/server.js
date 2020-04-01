@@ -5,22 +5,28 @@ const PORT_EXPRESS        = '8080';
 const HOST_EXPRESS        = '0.0.0.0';
 const PORT_MONGO          = '27017';
 const HOST_MONGO          = 'db';
-const DB_MONGO            = 'datadb'
+const DB_MONGO            = 'datadb';
 
 
 const mongoose  = require('mongoose');
 const cors      = require('cors');
+const fs        = require('fs');
 const express   = require('express');
 
-
 var dataSchema = new mongoose.Schema({
-  temperature: { 
+  email: {
+    type: String, 
+    required: [true, "Email is necesary"] 
+  }, 
+  age: { 
     type: Number, 
-    required: [true, "Temperature is necesary"] 
+    min: 18,
+    max: 100,
+    required: [true, "Age is necesary"] 
   },
-  humidity: {
-    type: Number, 
-    required: [true, "Humidity is necesary"] 
+  gender: {
+    type: String, 
+    required: [true, "Gender is necesary"] 
   },
   created: {
     type: Date, 
@@ -29,7 +35,7 @@ var dataSchema = new mongoose.Schema({
   }
 });
 
-var Measure = mongoose.model('Measure', dataSchema);
+var Poll = mongoose.model('Poll', dataSchema);
 
 
 
@@ -50,9 +56,19 @@ app.use((req, res, next) => {
  */
 
 app.use(cors());
+app.use(express.json());
 
-app.get('/insert', (req, res, next) => {
+app.post('/new', (req, res, next) => {
 
+  
+
+  
+  let poll = new Poll(req.body);
+  poll.save()
+    .then(newPoll => res.status(200).json({ok: true, new: newPoll}))
+    .catch(err => res.status(500).json({ok: false, message: "No se ha podido insertar en la base de datos" }));
+  
+  /*
   let t = Number(req.query.temperature) || 0;
   let h = Number(req.query.humidity) || 0;
 
@@ -61,13 +77,7 @@ app.get('/insert', (req, res, next) => {
   measure.save()
     .then(newMeasure => res.status(200).json({ok: true, new: newMeasure}))
     .catch(err => res.status(500).json({ok: false, message: "No se ha podido insertar en la base de datos" }));
-});
-
-app.get('/minutes', (req, res, next) => {
-  let time = new Date(Date.now() - 1000 * 60 * 10);
-  Measure.find({ created: {$gte: time}}).exec()
-    .then(data => res.status(200).json({ok: true, measures: data}))
-    .catch(err => res.status(500).json({ok: false, message: "No se ha podido conectar a la base de datos" }));
+  */
 });
 
 
@@ -75,7 +85,7 @@ app.get('/',  (req, res, next) => {
 
   Measure.find({}).exec()
     .then(data => {
-      res.status(200).json({ok: true, measures: data })
+      res.status(200).json({ok: true, measures: data });
     })
     .catch(err => res.status(500).json({ok: false, message: "No se ha podido conectar a la base de datos" }));
 
