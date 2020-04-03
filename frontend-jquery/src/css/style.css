@@ -4,32 +4,38 @@ section {
 .title {
   text-decoration: underline; }
 
-.first .grid {
+.first-section .grid {
   display: -ms-grid;
   display: grid;
   grid-gap: .5rem;
   -ms-grid-columns: (1fr)[4];
   grid-template-columns: repeat(4, 1fr); }
-  .first .grid > * {
+  .first-section .grid .grid-item {
     padding: 1.5rem;
     border-radius: 1rem;
-    position: relative; }
-    .first .grid > * i {
+    position: relative;
+    border: 2px solid silver; }
+    .first-section .grid .grid-item i {
       position: absolute;
       top: 50%;
       left: 50%;
       -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%); }
+  .first-section .grid .selected {
+    border: 2px solid limegreen; }
 
-.thrid > div {
+.thrid-section > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding: .3rem;
   border-bottom: 1px solid silver;
   padding: .5em; }
-  .thrid > div > h5 {
+  .thrid-section > div h5 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 20%;
+    flex: 0 0 20%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -39,11 +45,7 @@ section {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center; }
-  .thrid > div h5 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 20%;
-    flex: 0 0 20%; }
-  .thrid > div .options {
+  .thrid-section > div .options {
     -webkit-box-flex: 1;
     -ms-flex: 1 0 80%;
     flex: 1 0 80%;
@@ -54,18 +56,21 @@ section {
     justify-content: space-around;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
-    .thrid > div .options > div {
+    .thrid-section > div .options div {
       width: 3rem;
       height: 3rem;
       border-radius: 0.3rem;
-      position: relative; }
-      .thrid > div .options > div i {
+      position: relative;
+      border: solid 1px silver; }
+      .thrid-section > div .options div i {
         position: absolute;
         top: 50%;
         left: 50%;
         -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%); }
+    .thrid-section > div .options .selected {
+      border: 2px solid limegreen; }
 
 button {
   font-size: 3em; }

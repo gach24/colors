@@ -6,15 +6,60 @@ section {
     text-decoration: underline;
 }
 
-.first {
+.first-section {
     .grid {
         display: grid;
         grid-gap: .5rem;
         grid-template-columns: repeat(4, 1fr);
-        &>* {
+
+        .grid-item {
             padding: 1.5rem;
             border-radius: 1rem;
             position: relative;
+            border: 2px solid silver;
+
+            i {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .selected {
+            border: 2px solid limegreen;
+        }
+
+    }
+}
+
+.thrid-section>div {
+
+    display: flex;
+    padding: .3rem;
+    border-bottom: 1px solid silver;
+    padding: .5em;
+
+    h5 {
+        flex: 0 0 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .options {
+        flex: 1 0 80%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+
+
+        div {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.3rem;
+            position: relative;
+            border: solid 1px silver;
+
             i {
                 position: absolute;
                 top: 50%;
@@ -22,45 +67,14 @@ section {
                 transform: translate(-50%, -50%);
                 // visibility: hidden;
             }
+
         }
-    }    
-}
-
-.thrid {
-
-    &>div {
-        display: flex;
-        padding: .3rem;
-        border-bottom: 1px solid silver;
-        padding: .5em;
-
-        &>h5 {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .selected {
+            border: 2px solid limegreen;
         }
 
-        h5 { flex: 0 0 20%; }
-        .options {
-            flex: 1 0 80%;
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            &>div {
-                width: 3rem;
-                height: 3rem;
-                border-radius: 0.3rem;
-                position: relative;
-                i {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    // visibility: hidden;
-                }
-            }
-        }
     }
+
 }
 
 button {
@@ -123,6 +137,8 @@ footer {
 .white {
     background-color: white;
 }
+
+
 
 /**
 @media (min-width: 600px) {
