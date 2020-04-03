@@ -47,22 +47,22 @@ $(function () {
         q23: '',
         q24: '',
         q25: [],
-        q26: '',
-        q27: '',                
-        q28: '',
-        q29: '',
-        q30: '',
-        q31: '',
-        q32: '',
-        q33: '',
-        q34: '',
-        q35: '',
-        q36: '',
-        q37: '',
-        q38: '',
-        q39: '',
-        q40: '',
-        q41: '',
+        q26: [],
+        q27: [],                
+        q28: [],
+        q29: [],
+        q30: [],
+        q31: [],
+        q32: [],
+        q33: [],
+        q34: [],
+        q35: [],
+        q36: [],
+        q37: [],
+        q38: [],
+        q39: [],
+        q40: [],
+        q41: [],
     };  
    
 
@@ -96,20 +96,24 @@ $(function () {
     // Init section 3
     $('.thrid-section i').hide();
     $('.thrid-section .options div').on('click', function() {
-        let colors = poll[$(this).parent()[0].id]; 
-        let color  = $(this).attr('data-color');
-        let position = colors.indexOf(color)
+       
+        var colors = poll[$(this).parent()[0].id]; 
+        var color  = $(this).attr('data-color');
+        var position = colors.indexOf(color);
+        
         if ( position < 0) {
             $(this).addClass('selected'); 
             $(this).find('i').show();
             colors.push(color);
-            console.log(poll);
+       
         } else {
+
             $(this).removeClass('selected');
             $(this).find('i').hide();
             colors.splice(position, 1);
-            console.log(poll);
-        }        
+        } 
+              
+              
     });
 
     $('button').on('click', function() {
