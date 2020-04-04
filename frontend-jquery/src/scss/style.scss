@@ -25,6 +25,7 @@ section {
                 transform: translate(-50%, -50%);
             }
         }
+
         .selected {
             border: 2px solid limegreen;
         }
@@ -69,6 +70,7 @@ section {
             }
 
         }
+
         .selected {
             border: 2px solid limegreen;
         }
@@ -166,3 +168,12 @@ footer {
     }
 }
 */
+
+.hidden {
+    display: none;
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
