@@ -12,9 +12,17 @@
 </head>
 
 <body>
-  <h2>SPA Authentication Sample</h2>
-  <p>Welcome to our page!</p>
-  <button id="btn-login" disabled="true" onclick="login()">Log in</button>
+  <div id="mainPanel" class="jumbotron hidden">
+    <h1 class="display-4">Proyecto fin de carrera Celia González</h1>
+    <p class="lead">Esta encuesta es ...</p>
+    <hr class="my-4">
+    <p>Por favor, pulsa el botón para realizar la encuesta ... </p>
+    <a class="btn btn-primary btn-lg" href="#" onclick="login()" role="button">Realizar encuesta</a>
+    <!-- <button id="btn-login" onclick="login()">Log in</button> -->
+  </div>
+  <h1 id="redirectPanel" class="display-4 hidden">Redirigendo ...</h1>
+ 
+  <!-- 
   <button id="btn-logout" disabled="true" onclick="logout()">Log out</button>
   <div class="hidden" id="gated-content">
     <p>
@@ -30,6 +38,7 @@
       <pre id="ipt-user-profile"></pre>
     </label>
   </div>
+  -->
   </div>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

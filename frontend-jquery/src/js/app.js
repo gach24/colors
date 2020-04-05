@@ -34,16 +34,12 @@ window.onload = async () => {
         // Process the login state
         await auth0.handleRedirectCallback();
 
-     
-
         updateUI();
-
-        console.log("redirigiendo ...");
         // Use replaceState to redirect the user away and remove the querystring parameters
         // window.history.replaceState({}, document.title, "http://localhost/main.html");
         // windows.location.reload();
 
-        window.location.href = "http://localhost/main.html"
+        window.location.href = window.location.origin + '/main.html'
         
     }
 }
@@ -52,15 +48,15 @@ window.onload = async () => {
 const updateUI = async () => {
     const isAuthenticated = await auth0.isAuthenticated();
 
-    document.getElementById("btn-logout").disabled = !isAuthenticated;
-    document.getElementById("btn-login").disabled = isAuthenticated;
+    // document.getElementById("btn-logout").disabled = !isAuthenticated;
+    // document.getElementById("btn-login").disabled = isAuthenticated;
 
     if (isAuthenticated) {
+        document.getElementById('mainPanel').style.display = "none";
+        // document.getElementById('redirectPanel').style.display = "block";
         // document.getElementById("login").style.display = "none";
         // document.getElementById("main").style.display = "block";
-
-
-        
+        /*
         document.getElementById("gated-content").classList.remove("hidden");
 
         document.getElementById(
@@ -70,6 +66,7 @@ const updateUI = async () => {
         document.getElementById("ipt-user-profile").textContent = JSON.stringify(
             await auth0.getUser()
         );
+        */
         localStorage.setItem("user", JSON.stringify(
             await auth0.getUser()
         )); 
@@ -77,21 +74,26 @@ const updateUI = async () => {
 
 
     } else {
-        // document.getElementById("main").style.display = "none";
-        // document.getElementById("login").style.display = "block";
-        document.getElementById("gated-content").classList.add("hidden");
+        // document.getElementById("gated-content").classList.add("hidden");
+        document.getElementById('mainPanel').style.display = "block";
+        // document.getElementById('redirectPanel').style.display = "none";
     }
 };
 
 const login = async () => {
+   
     await auth0.loginWithRedirect({
         // redirect_uri: 'http://localhost/main.html',
+        redirect_uri: window.location.origin
     });
+    
     
 };
 
+/*
 const logout = () => {
     auth0.logout({
         returnTo: window.location.origin
     });
 };
+*/
