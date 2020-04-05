@@ -17,27 +17,34 @@ const configureClient = async () => {
 };
 
 window.onload = async () => {
+    // document.getElementById("main").classList.add("hidden");
     await configureClient();
     updateUI();
 
     const isAuthenticated = await auth0.isAuthenticated();
 
     if (isAuthenticated) {
-        // show the gated content
         return;
     }
 
     // NEW - check for the code and state parameters
     const query = window.location.search;
     if (query.includes("code=") && query.includes("state=")) {
-
+     
         // Process the login state
         await auth0.handleRedirectCallback();
 
+     
+
         updateUI();
 
+        console.log("redirigiendo ...");
         // Use replaceState to redirect the user away and remove the querystring parameters
-        window.history.replaceState({}, document.title, "/");
+        // window.history.replaceState({}, document.title, "http://localhost/main.html");
+        // windows.location.reload();
+
+        window.location.href = "http://localhost/main.html"
+        
     }
 }
 
@@ -49,6 +56,11 @@ const updateUI = async () => {
     document.getElementById("btn-login").disabled = isAuthenticated;
 
     if (isAuthenticated) {
+        // document.getElementById("login").style.display = "none";
+        // document.getElementById("main").style.display = "block";
+
+
+        
         document.getElementById("gated-content").classList.remove("hidden");
 
         document.getElementById(
@@ -58,16 +70,24 @@ const updateUI = async () => {
         document.getElementById("ipt-user-profile").textContent = JSON.stringify(
             await auth0.getUser()
         );
+        localStorage.setItem("user", JSON.stringify(
+            await auth0.getUser()
+        )); 
+
+
 
     } else {
+        // document.getElementById("main").style.display = "none";
+        // document.getElementById("login").style.display = "block";
         document.getElementById("gated-content").classList.add("hidden");
     }
 };
 
 const login = async () => {
     await auth0.loginWithRedirect({
-        redirect_uri: window.location.origin
+        // redirect_uri: 'http://localhost/main.html',
     });
+    
 };
 
 const logout = () => {

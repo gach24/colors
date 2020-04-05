@@ -1,6 +1,5 @@
 
 $(function () {
-
     const colors = [
         'brown', 
         'pink', 
@@ -130,7 +129,6 @@ $(function () {
             data: JSON.stringify(poll)
         }); 
     }); 
-
 
 
 });
