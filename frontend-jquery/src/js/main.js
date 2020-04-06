@@ -15,7 +15,7 @@ const colors = [
 ];
 
 // const url = 'http://localhost:8080/new';
-const url = 'http://ec2-3-92-198-103.compute-1.amazonaws.com:8080/new';
+const url = 'http://ec2-3-83-88-37.compute-1.amazonaws.com:8080/new';
 var poll = {
     email: 'germanach@educastur.org',
     age: 18,

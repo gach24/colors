@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div id="mainPanel" class="jumbotron hidden">
+    <h1 class="display-4">Proyecto fin de carrera Celia González</h1>
+    <p class="lead">Esta encuesta es ...</p>
+    <hr class="my-4">
+    <p>Por favor, pulsa el botón para realizar la encuesta ... </p>
+    <a class="btn btn-primary btn-lg" href="#" onclick="login()" role="button">Realizar encuesta</a>
+    <!-- <button id="btn-login" onclick="login()">Log in</button> -->
+  </div>
+  <h1 id="redirectPanel" class="display-4 hidden">Redirigendo ...</h1>
+ 
+  <!-- 
+  <button id="btn-logout" disabled="true" onclick="logout()">Log out</button>
+  <div class="hidden" id="gated-content">
+    <p>
+      You're seeing this content because you're currently
+      <strong>logged in</strong>.
+    </p>
+    <label>
+      Access token:
+      <pre id="ipt-access-token"></pre>
+    </label>
+    <label>
+      User profile:
+      <pre id="ipt-user-profile"></pre>
+    </label>
+  </div>
+  -->
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/1.2/auth0-spa-js.production.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

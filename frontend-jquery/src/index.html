@@ -21,31 +21,62 @@
     <!-- <button id="btn-login" onclick="login()">Log in</button> -->
   </div>
   <h1 id="redirectPanel" class="display-4 hidden">Redirigendo ...</h1>
- 
-  <!-- 
-  <button id="btn-logout" disabled="true" onclick="logout()">Log out</button>
-  <div class="hidden" id="gated-content">
-    <p>
-      You're seeing this content because you're currently
-      <strong>logged in</strong>.
-    </p>
-    <label>
-      Access token:
-      <pre id="ipt-access-token"></pre>
-    </label>
-    <label>
-      User profile:
-      <pre id="ipt-user-profile"></pre>
-    </label>
-  </div>
-  -->
+
   </div>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  <script src="https://cdn.auth0.com/js/auth0-spa-js/1.2/auth0-spa-js.production.js"></script>
-  <script src="js/app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+  <script>
+    // TODO: Replace the following with your app's Firebase project configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyBxwJlofSDeRmGA3IOAS2oUVjYznvYwFy0",
+      authDomain: "colors-a2daf.firebaseapp.com",
+      databaseURL: "https://colors-a2daf.firebaseio.com",
+      projectId: "colors-a2daf",
+      storageBucket: "colors-a2daf.appspot.com",
+      messagingSenderId: "975087980287",
+      appId: "1:975087980287:web:ef015d5c5444968eac86ca",
+      measurementId: "G-YYN1NMTGKZ"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    // firebase.analytics();
+
+
+
+    const login = async () => {
+      var provider = new firebase.auth.GoogleAuthProvider();
+      provider.addScope('https://www.googleapis.com/auth/userinfo.profile');
+      firebase.auth().languageCode = 'es';
+      firebase.auth().signInWithPopup(provider).then(function (result) {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+
+        // console.log("Bien");
+
+        console.log(user);
+        // ...
+      }).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        console.log(error.message);
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        console.log("Mal");
+      });
+      
+
+    };
+  </script>
 </body>
 
 </html>
