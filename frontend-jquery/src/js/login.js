@@ -30,7 +30,7 @@ const googleLogin = () => {
         user.photo = result.user.photoURL;
         console.log(user);
         localStorage.setItem("user", JSON.stringify(user)); 
-        window.location.href = window.location.origin + '/main.html'
+        window.location.href = './main.html'
          
         // ...
     }).catch(function (error) {
