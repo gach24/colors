@@ -120,30 +120,37 @@ $(function () {
     console.log("Hola mundo");
     var user = JSON.parse(localStorage.getItem('user'));
     if (user) {
-        poll['email'] = user.email;
+        console.log(user);
+        $('nav a').text("Bienvendid@ " + user.name);
+        
+
+        initFistSection();
+
+        initSecondSection();
+    
+        initThirdSection();
+    
+    
+        $('button').on('click', function() {
+            console.log("Click");
+            $.ajax({
+                url: url,
+                type: 'POST',
+                contentType: "application/json",
+                crossDomain: true,
+                dataType: 'json',
+                success: function(result){
+                    console.log(result);
+                },
+                data: JSON.stringify(poll)
+            }); 
+        }); 
+    }
+    else {
+        window.location.href = window.location.origin;
     }
    
-    initFistSection();
 
-    initSecondSection();
-
-    initThirdSection();
-
-
-    $('button').on('click', function() {
-        console.log("Click");
-        $.ajax({
-            url: url,
-            type: 'POST',
-            contentType: "application/json",
-            crossDomain: true,
-            dataType: 'json',
-            success: function(result){
-                console.log(result);
-            },
-            data: JSON.stringify(poll)
-        }); 
-    }); 
 
 
 });

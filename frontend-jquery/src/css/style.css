@@ -18,6 +18,13 @@ section {
     border-radius: 1rem;
     position: relative;
     border: 2px solid silver; }
+    .first-section .grid .grid-item i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); }
 
 .thrid-section > div {
   display: -webkit-box;
@@ -51,6 +58,13 @@ section {
       border-radius: 0.3rem;
       position: relative;
       border: solid 1px silver; }
+      .thrid-section > div .options div i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%); }
 
 @media (min-width: 100px) {
   .options {
@@ -66,14 +80,6 @@ section {
   .options {
     -ms-grid-columns: (1fr)[13];
     grid-template-columns: repeat(13, 1fr); } }
-
-i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%); }
 
 .selected {
   border: 2px solid limegreen; }
@@ -123,3 +129,38 @@ footer {
 
 .white {
   background-color: white; }
+
+.btn-facebook {
+  color: #fff;
+  background-color: #3b5998;
+  border-color: rgba(0, 0, 0, 0.2);
+  color: white; }
+
+.btn-google {
+  color: #fff;
+  background-color: #ea4335;
+  border-color: rgba(0, 0, 0, 0.2);
+  color: white; }
+
+.btn-social {
+  position: relative;
+  padding-left: 44px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis; }
+
+.btn-social:hover {
+  color: #eee; }
+
+.btn-social :first-child {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  padding: 7px;
+  font-size: 1.6em;
+  text-align: center;
+  border-right: 1px solid rgba(0, 0, 0, 0.2); }

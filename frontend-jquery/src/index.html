@@ -12,70 +12,33 @@
 </head>
 
 <body>
-  <div id="mainPanel" class="jumbotron hidden">
+  <div id="mainPanel" class="jumbotron hidden" style="margin-top: 5rem">
     <h1 class="display-4">Proyecto fin de carrera Celia González</h1>
     <p class="lead">Esta encuesta es ...</p>
     <hr class="my-4">
     <p>Por favor, pulsa el botón para realizar la encuesta ... </p>
-    <a class="btn btn-primary btn-lg" href="#" onclick="login()" role="button">Realizar encuesta</a>
-    <!-- <button id="btn-login" onclick="login()">Log in</button> -->
+    <!-- <a class="btn btn-primary btn-lg" href="#" onclick="login()" role="button">Realizar encuesta</a>-->
+    <div class="login d-flex flex-column align-items-center flex-md-row justify-content-around">
+      <div>
+        <a href="#" class="btn btn-lg btn-social btn-facebook mt-5 mx-1" onclick="facebookLogin()">
+          <i class="fa fa-facebook fa-fw"></i> Hacer encuesta con Facebook
+        </a>
+      </div>
+      <div>
+        <a href="#" class="btn btn-lg btn-social btn-google mt-5 mx-1" onclick="googleLogin()">
+          <i class="fa fa-google" aria-hidden="true"></i> Hacer encuesta con Google
+        </a>
+      </div>
+    </div>
   </div>
-  <h1 id="redirectPanel" class="display-4 hidden">Redirigendo ...</h1>
-
-  </div>
-
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
-  <script>
-    // TODO: Replace the following with your app's Firebase project configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyBxwJlofSDeRmGA3IOAS2oUVjYznvYwFy0",
-      authDomain: "colors-a2daf.firebaseapp.com",
-      databaseURL: "https://colors-a2daf.firebaseio.com",
-      projectId: "colors-a2daf",
-      storageBucket: "colors-a2daf.appspot.com",
-      messagingSenderId: "975087980287",
-      appId: "1:975087980287:web:ef015d5c5444968eac86ca",
-      measurementId: "G-YYN1NMTGKZ"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    // firebase.analytics();
+  <script src="js/login.js">
 
-
-
-    const login = async () => {
-      var provider = new firebase.auth.GoogleAuthProvider();
-      provider.addScope('https://www.googleapis.com/auth/userinfo.profile');
-      firebase.auth().languageCode = 'es';
-      firebase.auth().signInWithPopup(provider).then(function (result) {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        var token = result.credential.accessToken;
-        // The signed-in user info.
-        var user = result.user;
-
-        // console.log("Bien");
-
-        console.log(user);
-        // ...
-      }).catch(function (error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        console.log(error.message);
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        console.log("Mal");
-      });
-      
-
-    };
   </script>
 </body>
 
