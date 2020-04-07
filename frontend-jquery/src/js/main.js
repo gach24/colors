@@ -15,7 +15,7 @@ const colors = [
 ];
 
 // const url = 'http://localhost:8080/new';
-const url = 'http://ec2-3-83-88-37.compute-1.amazonaws.com:8080/new';
+const url = 'http://ec2-3-83-66-86.compute-1.amazonaws.com:8080/new';
 var poll = {
     email: 'germanach@educastur.org',
     age: 18,
@@ -118,10 +118,18 @@ function initThirdSection() {
 $(function () {
 
     console.log("Hola mundo");
-    var user = JSON.parse(localStorage.getItem('user'));
+    var user = {
+        email: 'germanach@educastur.org',
+        name: 'German Carreño',
+        photo: ''
+    };
+    
+    // user = JSON.parse(localStorage.getItem('user'));
     if (user) {
         console.log(user);
         $('nav a').text("Bienvenid@ " + user.name);
+        poll.email = user.email
+        
         
 
         initFistSection();
