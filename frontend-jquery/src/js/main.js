@@ -121,7 +121,7 @@ $(function () {
     var user = JSON.parse(localStorage.getItem('user'));
     if (user) {
         console.log(user);
-        $('nav a').text("Bienvendid@ " + user.name);
+        $('nav a').text("Bienvenid@ " + user.name);
         
 
         initFistSection();
