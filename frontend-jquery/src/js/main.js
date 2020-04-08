@@ -14,8 +14,7 @@ const colors = [
     'white'
 ];
 
-// const url = 'http://localhost:8080/new';
-const url = 'http://ec2-3-83-66-86.compute-1.amazonaws.com:8080/new';
+
 var poll = {
     email: 'germanach@educastur.org',
     age: 18,
@@ -75,7 +74,7 @@ function initFistSection() {
         $('.first-section .grid-item').removeClass('selected');
         $(this).addClass('selected');
         poll['q01'] = $(this).attr('data-color');
-        console.log(poll);
+        // console.log(poll);
     });
 }
 
@@ -138,7 +137,8 @@ $(function () {
     
         initThirdSection();
     
-    
+        const url = 'http://localhost:8080/new';
+        // const url = 'http://ec2-3-83-66-86.compute-1.amazonaws.com:8080/new';
         $('button').on('click', function() {
             console.log("Click");
             $.ajax({
