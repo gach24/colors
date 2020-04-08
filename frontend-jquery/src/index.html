@@ -8,38 +8,119 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <title>Login</title>
   <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-  <div id="mainPanel" class="jumbotron hidden" style="margin-top: 5rem">
-    <h1 class="display-4">Proyecto fin de carrera Celia González</h1>
-    <p class="lead">Esta encuesta es ...</p>
-    <hr class="my-4">
-    <p>Por favor, pulsa el botón para realizar la encuesta ... </p>
-    <!-- <a class="btn btn-primary btn-lg" href="#" onclick="login()" role="button">Realizar encuesta</a>-->
-    <div class="login d-flex flex-column align-items-center flex-md-row justify-content-around">
-      <div>
-        <button class="btn btn-lg btn-social btn-facebook mt-5 mx-1" onclick="facebookLogin()">
-          <i class="fa fa-facebook fa-fw"></i> Hacer encuesta con Facebook
-        </a>
-      </div>
-      <div>
-        <button class="btn btn-lg btn-social btn-google mt-5 mx-1" onclick="googleLogin()">
-          <i class="fa fa-google" aria-hidden="true"></i> Hacer encuesta con Google
-        </a>
+<body class="container">
+  <div class="row my-3">
+    <div class="card mb-3 col-12">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="img/colors.jpg" class="card-img" alt="Imagen de protada">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title h3">Proyecto fin de carrera Celia Gonzalez</h5>
+            <p class="card-text">Esta encuesta es ... descripción de la encuesta</p>
+
+            <p class="card-text">Por favor, pulsa rellena los datos y pulsa el botón para realizar la encueta</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
       </div>
     </div>
+    <!--
+      <header id="mainPanel" class="jumbotron hidden">
+        <h1 class="display-4">Proyecto fin de carrera Celia González</h1>
+        <p class="lead">Esta encuesta es ...</p>
+        <hr class="my-4">
+        <p>Por favor, pulsa el botón para realizar la encuesta ... </p>
+      </header>
+      -->
   </div>
+  <div class="row">
+    <main class="col-6 offset-3">
+      <form class="needs-validation" novalidate>
+        <div class="form-row">
+          <div class="col-12 mb-3">
+            <label for="email">Correo: </label>
+            <input type="email" class="form-control" id="email" placeholder="Introduzca un correo" value=""  required>
+            <div class="valid-feedback">
+              Ok!
+            </div>
+            <div class="invalid-feedback">
+              Por favor, introduzca un correo
+            </div>
+          </div>
+          <div class="col-12 mb-3">
+            <label for="edad">Edad: </label>
+            <input type="number" class="form-control" id="edad" placeholder="Introduzca su edad" value="" min="18" max="100" required>
+            <div class="valid-feedback">
+              Ok!
+            </div>
+            <div class="invalid-feedback">
+              Por favor, introduzca la edad
+            </div>
+          </div>
+          <div class="mb-3 px-4">
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="rdbHombre" name="sexo" value="V" required>
+              <label class="custom-control-label" for="rdbHombre">Hombre</label>
+              <span class="invalid-feedback">Debe seleccionar hombre o mujer</span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="rdbMujer" name="sexo" value="M" required>
+              <label class="custom-control-label" for="rdbMujer">Mujer</label>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 text-center">
+          <button class="btn btn-outline-success btn-lg" type="submit">
+            Enviar encuesta 
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+          </button>
+        </div>
+        
+      </form>
+
+
+    </main>
+  </div>
+
+
+
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
-  <script src="js/login.js">
-
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+      'use strict';
+      window.addEventListener('load', function () {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function (form) {
+          form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            if (form.checkValidity()) {
+              var user = {}
+              user.email = document.querySelector('#email').value;
+              user.age = document.querySelector('#edad').value;
+              user.sex = document.querySelector('input[name="sexo"]:checked').value;
+              console.log(user);
+              localStorage.setItem('user', JSON.stringify(user));
+              window.location.href = './main.html';
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
   </script>
+
 </body>
 
 </html>

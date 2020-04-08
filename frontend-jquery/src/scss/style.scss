@@ -15,7 +15,6 @@ section {
         display: grid;
         grid-gap: .5rem;
         grid-template-columns: repeat(4, 1fr);
-
         .grid-item {
             padding: 1.5rem;
             border-radius: 1rem;
@@ -154,43 +153,4 @@ footer {
 
 .white {
     background-color: white;
-}
-
-.btn-facebook {
-    color: #fff;
-    background-color: #3b5998;
-    border-color: rgba(0,0,0,0.2);
-    color: white;
-}
-
-.btn-google {
-    color: #fff;
-    background-color: #ea4335;
-    border-color: rgba(0,0,0,0.2);
-    color: white;
-}
-
-.btn-social {
-    position: relative;
-    padding-left: 44px;
-    text-align: left;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.btn-social:hover {
-    color: #eee;
-}
-
-.btn-social :first-child {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 40px;
-    padding: 7px;
-    font-size: 1.6em;
-    text-align: center;
-    border-right: 1px solid rgba(0,0,0,0.2);
 }
