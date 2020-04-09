@@ -16,33 +16,33 @@ const colors = [
 
 
 var poll = {
-    email: 'germanach@educastur.org',
-    age: 18,
-    gender: 'V',
-    q01: '',
-    q02: '',
-    q03: '',
-    q04: '',
-    q05: '',
-    q06: '',
-    q07: '',
-    q08: '',
-    q09: '',
-    q10: '',
-    q11: '',
-    q12: '',
-    q13: '',
-    q14: '',
-    q15: '',
-    q16: '',
-    q17: '',
-    q18: '',
-    q19: '',
-    q20: '',
-    q21: '',
-    q22: '',
-    q23: '',
-    q24: '',
+    email: '',
+    age: null,
+    gender: '',
+    q01: null,
+    q02: null,
+    q03: null,
+    q04: null,
+    q05: null,
+    q06: null,
+    q07: null,
+    q08: null,
+    q09: null,
+    q10: null,
+    q11: null,
+    q12: null,
+    q13: null,
+    q14: null,
+    q15: null,
+    q16: null,
+    q17: null,
+    q18: null,
+    q19: null,
+    q20: null,
+    q21: null,
+    q22: null,
+    q23: null,
+    q24: null,
     q25: [],
     q26: [],
     q27: [],                
@@ -116,18 +116,14 @@ function initThirdSection() {
 
 $(function () {
 
-    console.log("Hola mundo");
-    var user = {
-        email: 'germanach@educastur.org',
-        name: 'German Carreño',
-        photo: ''
-    };
-    
-    // user = JSON.parse(localStorage.getItem('user'));
+    user = JSON.parse(localStorage.getItem('user'));
+
+
     if (user) {
-        console.log(user);
-        $('nav a').text("Bienvenid@ " + user.name);
-        poll.email = user.email
+        poll['email'] = user.email;
+        poll['age']   = user.age;
+        poll['gender'] = user.gender; 
+        $('nav a').text("Bienvenid@ " + user.email);
         
         
 
