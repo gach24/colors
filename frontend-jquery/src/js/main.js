@@ -19,8 +19,8 @@ var poll = {
     email: '',
     age: null,
     gender: '',
-    '01': null,
-    '02': null,
+    q01: null,
+    q02: null,
     q03: null,
     q04: null,
     q05: null,
@@ -120,9 +120,22 @@ function validation() {
     $.each(poll, function(key, val) {
         if ((Array.isArray(val) && val.length === 0) || !val) 
             keys.push(key);
-        console.log(typeof(val));
+        // console.log(typeof(val));
     });
-    console.log(keys);
+    return keys;
+}
+
+function showErrors(errors) {
+    let message = "Debe cumplimentar las preguntas: "
+    $.each(errors, function(index, value) {
+        
+        if (index === errors.length - 1)
+            message += value.substring(1);
+        else
+            message += value.substring(1) + ", ";
+    });
+
+    $('footer p').text(message);
 }
 
 $(function () {
@@ -147,7 +160,9 @@ $(function () {
         const url = 'http://localhost:8080/new';
         // const url = 'http://ec2-3-83-66-86.compute-1.amazonaws.com:8080/new';
         $('button').on('click', function() {
-            validation();
+            var errors = validation();
+            if (errors.length === 0)
+                console.log(poll);
             /*
             $.ajax({
                 url: url,
@@ -161,6 +176,8 @@ $(function () {
                 data: JSON.stringify(poll)
             });
             */ 
+            else
+                showErrors(errors);
         }); 
     }
     else {
