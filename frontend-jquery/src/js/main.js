@@ -73,7 +73,7 @@ function initFistSection() {
         $(this).find('i').show();
         $('.first-section .grid-item').removeClass('selected');
         $(this).addClass('selected');
-        poll['q01'] = $(this).attr('data-color');
+        poll['01'] = $(this).attr('data-color');
         // console.log(poll);
     });
 }
@@ -108,10 +108,34 @@ function initThirdSection() {
             $(this).removeClass('selected');
             $(this).find('i').hide();
             colors.splice(position, 1);
-        } 
-              
-              
+        }    
     });
+}
+
+/**
+ * Validation 
+ */
+function validation() {
+    var keys = [];
+    $.each(poll, function(key, val) {
+        if ((Array.isArray(val) && val.length === 0) || !val) 
+            keys.push(key);
+        // console.log(typeof(val));
+    });
+    return keys;
+}
+
+function showErrors(errors) {
+    let message = "Debe cumplimentar las preguntas: "
+    $.each(errors, function(index, value) {
+        
+        if (index === errors.length - 1)
+            message += value.substring(1);
+        else
+            message += value.substring(1) + ", ";
+    });
+
+    $('footer p').text(message);
 }
 
 $(function () {
@@ -136,7 +160,10 @@ $(function () {
         const url = 'http://localhost:8080/new';
         // const url = 'http://ec2-3-83-66-86.compute-1.amazonaws.com:8080/new';
         $('button').on('click', function() {
-            console.log("Click");
+            var errors = validation();
+            if (errors.length === 0)
+                console.log(poll);
+            /*
             $.ajax({
                 url: url,
                 type: 'POST',
@@ -147,7 +174,10 @@ $(function () {
                     console.log(result);
                 },
                 data: JSON.stringify(poll)
-            }); 
+            });
+            */ 
+            else
+                showErrors(errors);
         }); 
     }
     else {
