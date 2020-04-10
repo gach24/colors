@@ -73,7 +73,7 @@ function initFistSection() {
         $(this).find('i').show();
         $('.first-section .grid-item').removeClass('selected');
         $(this).addClass('selected');
-        poll['01'] = $(this).attr('data-color');
+        poll['q01'] = $(this).attr('data-color');
         // console.log(poll);
     });
 }

@@ -26,6 +26,40 @@ section {
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%); }
 
+.second-section header .header-options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end; }
+  .second-section header .header-options .header-item {
+    padding: 0 .5rem; }
+
+.second-section .questions .question-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border-bottom: 1px solid silver;
+  padding-bottom: 1rem; }
+  .second-section .questions .question-item .question-text {
+    padding: 1rem; }
+    .second-section .questions .question-item .question-text p {
+      text-align: justify;
+      font-size: 1.1rem;
+      font-weight: 300; }
+  .second-section .questions .question-item .question-answers {
+    padding: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around; }
+
 .thrid-section > div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -73,17 +107,35 @@ footer p {
   margin: 1rem; }
 
 @media (min-width: 100px) {
-  .options {
+  .thrid-section .options {
     -ms-grid-columns: (1fr)[4];
     grid-template-columns: repeat(4, 1fr); } }
 
 @media (min-width: 600px) {
-  .options {
+  .thrid-section .options {
     -ms-grid-columns: (1fr)[6];
     grid-template-columns: repeat(6, 1fr); } }
 
 @media (min-width: 1000px) {
-  .options {
+  .second-section .questions .question-item {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row; }
+    .second-section .questions .question-item .question-text {
+      -ms-flex-preferred-size: 50%;
+      flex-basis: 50%; }
+      .second-section .questions .question-item .question-text p {
+        font-size: 1.25rem;
+        font-weight: 300; }
+    .second-section .questions .question-item .question-answers {
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1; }
+  .thrid-section .options {
     -ms-grid-columns: (1fr)[13];
     grid-template-columns: repeat(13, 1fr); } }
 
