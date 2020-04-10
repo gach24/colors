@@ -19,8 +19,8 @@ var poll = {
     email: '',
     age: null,
     gender: '',
-    q01: null,
-    q02: null,
+    '01': null,
+    '02': null,
     q03: null,
     q04: null,
     q05: null,
@@ -73,7 +73,7 @@ function initFistSection() {
         $(this).find('i').show();
         $('.first-section .grid-item').removeClass('selected');
         $(this).addClass('selected');
-        poll['q01'] = $(this).attr('data-color');
+        poll['01'] = $(this).attr('data-color');
         // console.log(poll);
     });
 }
@@ -108,10 +108,21 @@ function initThirdSection() {
             $(this).removeClass('selected');
             $(this).find('i').hide();
             colors.splice(position, 1);
-        } 
-              
-              
+        }    
     });
+}
+
+/**
+ * Validation 
+ */
+function validation() {
+    var keys = [];
+    $.each(poll, function(key, val) {
+        if ((Array.isArray(val) && val.length === 0) || !val) 
+            keys.push(key);
+        console.log(typeof(val));
+    });
+    console.log(keys);
 }
 
 $(function () {
@@ -136,7 +147,8 @@ $(function () {
         const url = 'http://localhost:8080/new';
         // const url = 'http://ec2-3-83-66-86.compute-1.amazonaws.com:8080/new';
         $('button').on('click', function() {
-            console.log("Click");
+            validation();
+            /*
             $.ajax({
                 url: url,
                 type: 'POST',
@@ -147,7 +159,8 @@ $(function () {
                     console.log(result);
                 },
                 data: JSON.stringify(poll)
-            }); 
+            });
+            */ 
         }); 
     }
     else {
