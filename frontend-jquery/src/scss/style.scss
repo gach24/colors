@@ -7,7 +7,14 @@ section {
 }
 
 .title {
-    text-decoration: underline;
+    // text-decoration: underline;
+    padding: .5rem;
+    margin-bottom: .5rem;
+    background-color: #343a40;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 300;
+    text-align: justify;
 }
 
 .first-section {
@@ -32,18 +39,16 @@ section {
     }
 }
 
+.fourth-section {
+    
+                .question-answers {
+                    display: flex;
+                    justify-content: space-around;
+                }
+
+}
+
 .second-section {
-    header {
-        .header-options {
-            display: flex;
-            justify-content: flex-end;
-
-            .header-item {
-                padding: 0 .5rem;
-            }
-        }
-    }
-
     .questions {
         .question-item {
             display: flex;
@@ -57,7 +62,6 @@ section {
                     text-align: justify;
                     font-size: 1.1rem;
                     font-weight: 300;
-                    
                 }
             }
 
