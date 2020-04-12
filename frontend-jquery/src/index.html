@@ -80,6 +80,7 @@
             Realizar encuesta 
             <i class="fa fa-paper-plane" aria-hidden="true"></i>
           </button>
+          <p id="message" style="color: red"></p>
         </div>
         
       </form>
@@ -110,9 +111,28 @@
               user.email = document.querySelector('#email').value;
               user.age = document.querySelector('#edad').value;
               user.gender = document.querySelector('input[name="sexo"]:checked').value;
-              console.log(user);
-              localStorage.setItem('user', JSON.stringify(user));
-              window.location.href = './main.html';
+              const url = 'http://localhost:8080/query';
+              $.ajax({
+                    url: url,
+                    type: 'POST',
+                    contentType: "application/json",
+                    crossDomain: true,
+                    dataType: 'json',
+                    success: function(result){
+                        if (!result.exist) {
+                          console.log(user);
+                          localStorage.setItem('user', JSON.stringify(user));
+                          window.location.href = './main.html';
+                        } else {
+                          document.querySelector('#message').innerHTML   = "Esta persona ya ha realizado la encuesta";
+                        }
+                    },
+                    data: JSON.stringify(user)
+                });
+
+              // console.log(user);
+              // localStorage.setItem('user', JSON.stringify(user));
+              // window.location.href = './main.html';
             }
             form.classList.add('was-validated');
           }, false);

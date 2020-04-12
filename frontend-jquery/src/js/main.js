@@ -60,6 +60,35 @@ var poll = {
     q39: [],
     q40: [],
     q41: [],
+    q41: [],
+    q42: 1,
+    q43: 1,
+    q44: 1,
+    q45: 1,
+    q46: 1,
+    q47: 1,
+    q48: 1,
+    q49: 1,
+    q50: 1,
+    q51: 1,
+    q52: 1,
+    q53: 1,
+    q54: 1,
+    q55: 1,
+    q56: 1,
+    q57: 1,
+    q58: 1,
+    q59: 1,
+    q60: 1,
+    q61: 1, 
+    q62: 1,
+    q63: 1, 
+    q64: 1,
+    q65: 1, 
+    q66: 1,
+    q67: 1, 
+    q68: 1,
+    q69: 1, 
 };
 
 /**
@@ -134,6 +163,7 @@ var initFourthSection = function () {
 
     range.on('input', function () {
         $(this).next(value).html(this.value);
+        poll[$(this)[0].id] = this.value;
     });
 };
 
@@ -192,23 +222,22 @@ $(function () {
         // const url = 'http://ec2-3-83-66-86.compute-1.amazonaws.com:8080/new';
         $('button').on('click', function () {
             var errors = validation();
-            if (errors.length === 0)
+            if (errors.length === 0) {
                 console.log(poll);
-            /*
-            $.ajax({
-                url: url,
-                type: 'POST',
-                contentType: "application/json",
-                crossDomain: true,
-                dataType: 'json',
-                success: function(result){
-                    console.log(result);
-                },
-                data: JSON.stringify(poll)
-            });
-            */
-            else
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    contentType: "application/json",
+                    crossDomain: true,
+                    dataType: 'json',
+                    success: function(result){
+                        console.log(result);
+                    },
+                    data: JSON.stringify(poll)
+                });                
+            } else {
                 showErrors(errors);
+            }
         });
     } else {
         window.location.href = window.location.origin;

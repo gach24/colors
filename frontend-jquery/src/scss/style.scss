@@ -126,11 +126,18 @@
         gap: 3rem;
     }
 
+    .group-questions-text {
+        height: 3.5rem;
+    }
+
     .question-image {
         padding: 1rem;
         text-align: center;
+       
         img {
-            width: 25%;
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
         }
     }
 
