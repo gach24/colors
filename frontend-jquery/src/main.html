@@ -36,30 +36,58 @@
 
     <main>
 
+      <!-- FIRST SECTION -->
       <section class="first-section">
         <h4 class="title">1. De entre los siguientes colores seleccione su favorito:</h4>
         <!-- 1º QUESTION -->
-        <div class="q01 grid">
-          <div data-color="1" class="grid-item brown"><i class="fa fa-check fa-3x"></i></div>
-          <div data-color="2" class="grid-item pink"><i class="fa fa-check fa-3x"></i></div>
-          <div data-color="3" class="grid-item grey"><i class="fa fa-check fa-3x"></i></div>
-          <div data-color="4" class="grid-item violet"><i class="fa fa-check fa-3x"></i></div>
-          <div data-color="5" class="grid-item orange"><i class="fa fa-check fa-3x"></i></div>
-          <div data-color="6" class="grid-item yellow"><i class="fa fa-check fa-3x"></i></div>
-          <div data-color="7" class="grid-item black"><i class="fa fa-check fa-3x"></i></div>
-          <div data-color="8" class="grid-item green"><i class="fa fa-check fa-3x"></i></div>
-          <div data-color="9" class="grid-item red"><i class="fa fa-check fa-3x"></i></div>
-          <div data-color="10" class="grid-item gold"><i class="fa fa-check fa-3x"></i></div>
-          <div data-color="11" class="grid-item silver"><i class="fa fa-check fa-3x"></i></div>
-          <div data-color="12" class="grid-item blue"><i class="fa fa-check fa-3x"></i></div>
-          <div data-color="13" class="grid-item white"><i class="fa fa-check fa-3x"></i></div>
+        <div id="q01" class="q01 grid">
+          <div data-color="1" class="grid-item brown">
+            <i class="fa fa-check fa-3x hidden"></i>
+          </div>
+          <div data-color="2" class="grid-item pink">
+            <i class="fa fa-check fa-3x hidden"></i>
+          </div>
+          <div data-color="3" class="grid-item grey">
+            <i class="fa fa-check fa-3x hidden"></i>
+          </div>
+          <div data-color="4" class="grid-item violet">
+            <i class="fa fa-check fa-3x hidden"></i>
+          </div>
+          <div data-color="5" class="grid-item orange">
+            <i class="fa fa-check fa-3x hidden"></i>
+          </div>
+          <div data-color="6" class="grid-item yellow">
+            <i class="fa fa-check fa-3x hidden"></i>
+          </div>
+          <div data-color="7" class="grid-item black">
+            <i class="fa fa-check fa-3x hidden"></i>
+          </div>
+          <div data-color="8" class="grid-item green">
+            <i class="fa fa-check fa-3x hidden"></i>
+          </div>
+          <div data-color="9" class="grid-item red">
+            <i class="fa fa-check fa-3x hidden"></i>
+          </div>
+          <div data-color="10" class="grid-item gold">
+            <i class="fa fa-check fa-3x hidden"></i>
+          </div>
+          <div data-color="11" class="grid-item silver">
+            <i class="fa fa-check fa-3x hidden"></i>
+          </div>
+          <div data-color="12" class="grid-item blue">
+            <i class="fa fa-check fa-3x hidden"></i>
+          </div>
+          <div data-color="13" class="grid-item white">
+            <i class="fa fa-check fa-3x hidden"></i>
+          </div>
         </div>
       </section>
 
+      <!-- SECOND SECTION -->
       <section class="second-section">
         <header>
-          <h4 class="title">Para cada una de las siguientes afirmaciones, señale la
-            alternativa que más se corresponda con sus hábitos de consumo</h4>
+          <h4 class="title">Para cada una de las siguientes afirmaciones, señale la alternativa que más se corresponda
+            con sus hábitos de consumo</h4>
         </header>
         <div class="questions">
           <!-- 2º QUESTION -->
@@ -828,7 +856,7 @@
       </section>
 
 
-      <section class="thrid-section">
+      <section class="third-section">
 
         <h4 class="title">
           Marque el color o colores que le transmiten la emoción o sensación indicada
@@ -1181,15 +1209,44 @@
       <section class="fourth-section">
         <header>
           <h4 class="title">A continuación, valore del 1 al 7 las características del producto en función del envase, (1
-            nada de acuerdo y 7 completamente de acuerdo</h4>
+            nada de acuerdo y 7 completamente de acuerdo)</h4>
         </header>
 
         <div class="questions">
+
           <div class="group-questions">
             <div class="group-questions-text">
               Una empresa de zumos saca a la venta el siguiente producto, un zumo de naranja
             </div>
-            <div class="question-image p-3">
+            <div class="question-image">
+              <img src="img/zumo-naranja.jpg" alt="Producto café envoltorio rojo">
+            </div>
+            <div class="question-item">
+              <div class="question-text">
+                <span>42</span>Agradable
+              </div>
+              <div class="range-slider">
+                <input class="range-slider__range" type="range" value="1" min="1" max="7">
+                <span class="range-slider__value">0</span>
+              </div>
+            </div>
+            <div class="question-item">
+              <div class="question-text">
+                <span>43.</span>Innovador
+              </div>
+              <div class="range-slider">
+                <input class="range-slider__range" type="range" value="1" min="1" max="7">
+                <span class="range-slider__value">0</span>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="group-questions">
+            <div class="group-questions-text">
+              Una empresa de zumos saca a la venta el siguiente producto, un zumo de naranja
+            </div>
+            <div class="question-image">
               <img src="img/cafe-1.jpg" class="img-fluid" alt="Producto café envoltorio rojo">
             </div>
             <div class="question-item">
@@ -1219,7 +1276,7 @@
                   <div class="custom-control custom-radio">
                     <input type="radio" id="q42-4" name="q42" value="4" class="custom-control-input">
                     <label class="custom-control-label" for="q42-4">4</label>
-                  </div>                  
+                  </div>
                 </div>
                 <div class="answer-item">
                   <div class="custom-control custom-radio">
@@ -1268,7 +1325,7 @@
                   <div class="custom-control custom-radio">
                     <input type="radio" id="q42-3" name="q43" value="4" class="custom-control-input">
                     <label class="custom-control-label" for="q43-4">4</label>
-                  </div>                  
+                  </div>
                 </div>
                 <div class="answer-item">
                   <div class="custom-control custom-radio">
@@ -1291,6 +1348,328 @@
               </div>
             </div>
           </div>
+
+          <div class="group-questions">
+            <div class="group-questions-text">
+              Una empresa de zumos saca a la venta el siguiente producto, un zumo de naranja
+            </div>
+            <div class="question-image">
+              <img src="img/cafe-1.jpg" class="img-fluid" alt="Producto café envoltorio rojo">
+            </div>
+            <div class="question-item">
+              <div class="question-text">
+                42. Agradable
+              </div>
+              <div class="question-answers">
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-1" name="q42" value="1" class="custom-control-input">
+                    <label class="custom-control-label" for="q42-1">1</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-2" name="q42" value="2" class="custom-control-input">
+                    <label class="custom-control-label" for="q42-2">2</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-3" name="q42" value="3" class="custom-control-input">
+                    <label class="custom-control-label" for="q42-3">3</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-4" name="q42" value="4" class="custom-control-input">
+                    <label class="custom-control-label" for="q42-4">4</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-5" name="q42" value="5" class="custom-control-input">
+                    <label class="custom-control-label" for="q42-5">5</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-6" name="q42" value="6" class="custom-control-input">
+                    <label class="custom-control-label" for="q42-6">6</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-7" name="q42" value="7" class="custom-control-input">
+                    <label class="custom-control-label" for="q42-7">7</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="question-item">
+              <div class="question-text">
+                42. Innovador
+              </div>
+              <div class="question-answers">
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q43-1" name="q43" value="1" class="custom-control-input">
+                    <label class="custom-control-label" for="q43-1">1</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q43-2" name="q43" value="2" class="custom-control-input">
+                    <label class="custom-control-label" for="q43-2">2</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q43-3" name="q43" value="3" class="custom-control-input">
+                    <label class="custom-control-label" for="q43-3">3</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-3" name="q43" value="4" class="custom-control-input">
+                    <label class="custom-control-label" for="q43-4">4</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q43-5" name="q43" value="5" class="custom-control-input">
+                    <label class="custom-control-label" for="q43-5">5</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q43-6" name="q43" value="6" class="custom-control-input">
+                    <label class="custom-control-label" for="q43-6">6</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q43-7" name="q43" value="7" class="custom-control-input">
+                    <label class="custom-control-label" for="q43-7">7</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group-questions">
+            <div class="group-questions-text">
+              Una empresa de zumos saca a la venta el siguiente producto, un zumo de naranja
+            </div>
+            <div class="question-image">
+              <img src="img/cafe-1.jpg" class="img-fluid" alt="Producto café envoltorio rojo">
+            </div>
+            <div class="question-item">
+              <div class="question-text">
+                42. Agradable
+              </div>
+              <div class="question-answers">
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-1" name="q42" value="1" class="custom-control-input">
+                    <label class="custom-control-label" for="q42-1">1</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-2" name="q42" value="2" class="custom-control-input">
+                    <label class="custom-control-label" for="q42-2">2</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-3" name="q42" value="3" class="custom-control-input">
+                    <label class="custom-control-label" for="q42-3">3</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-4" name="q42" value="4" class="custom-control-input">
+                    <label class="custom-control-label" for="q42-4">4</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-5" name="q42" value="5" class="custom-control-input">
+                    <label class="custom-control-label" for="q42-5">5</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-6" name="q42" value="6" class="custom-control-input">
+                    <label class="custom-control-label" for="q42-6">6</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-7" name="q42" value="7" class="custom-control-input">
+                    <label class="custom-control-label" for="q42-7">7</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="question-item">
+              <div class="question-text">
+                42. Innovador
+              </div>
+              <div class="question-answers">
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q43-1" name="q43" value="1" class="custom-control-input">
+                    <label class="custom-control-label" for="q43-1">1</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q43-2" name="q43" value="2" class="custom-control-input">
+                    <label class="custom-control-label" for="q43-2">2</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q43-3" name="q43" value="3" class="custom-control-input">
+                    <label class="custom-control-label" for="q43-3">3</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-3" name="q43" value="4" class="custom-control-input">
+                    <label class="custom-control-label" for="q43-4">4</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q43-5" name="q43" value="5" class="custom-control-input">
+                    <label class="custom-control-label" for="q43-5">5</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q43-6" name="q43" value="6" class="custom-control-input">
+                    <label class="custom-control-label" for="q43-6">6</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q43-7" name="q43" value="7" class="custom-control-input">
+                    <label class="custom-control-label" for="q43-7">7</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group-questions">
+            <div class="group-questions-text">
+              Una empresa de zumos saca a la venta el siguiente producto, un zumo de naranja
+            </div>
+            <div class="question-image">
+              <img src="img/cafe-1.jpg" class="img-fluid" alt="Producto café envoltorio rojo">
+            </div>
+            <div class="question-item">
+              <div class="question-text">
+                42. Agradable
+              </div>
+              <div class="question-answers">
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-1" name="q42" value="1" class="custom-control-input">
+                    <label class="custom-control-label" for="q42-1">1</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-2" name="q42" value="2" class="custom-control-input">
+                    <label class="custom-control-label" for="q42-2">2</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-3" name="q42" value="3" class="custom-control-input">
+                    <label class="custom-control-label" for="q42-3">3</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-4" name="q42" value="4" class="custom-control-input">
+                    <label class="custom-control-label" for="q42-4">4</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-5" name="q42" value="5" class="custom-control-input">
+                    <label class="custom-control-label" for="q42-5">5</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-6" name="q42" value="6" class="custom-control-input">
+                    <label class="custom-control-label" for="q42-6">6</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-7" name="q42" value="7" class="custom-control-input">
+                    <label class="custom-control-label" for="q42-7">7</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="question-item">
+              <div class="question-text">
+                42. Innovador
+              </div>
+              <div class="question-answers">
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q43-1" name="q43" value="1" class="custom-control-input">
+                    <label class="custom-control-label" for="q43-1">1</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q43-2" name="q43" value="2" class="custom-control-input">
+                    <label class="custom-control-label" for="q43-2">2</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q43-3" name="q43" value="3" class="custom-control-input">
+                    <label class="custom-control-label" for="q43-3">3</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q42-3" name="q43" value="4" class="custom-control-input">
+                    <label class="custom-control-label" for="q43-4">4</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q43-5" name="q43" value="5" class="custom-control-input">
+                    <label class="custom-control-label" for="q43-5">5</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q43-6" name="q43" value="6" class="custom-control-input">
+                    <label class="custom-control-label" for="q43-6">6</label>
+                  </div>
+                </div>
+                <div class="answer-item">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="q43-7" name="q43" value="7" class="custom-control-input">
+                    <label class="custom-control-label" for="q43-7">7</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -1307,6 +1686,7 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.2/bootstrap-slider.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 

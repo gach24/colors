@@ -1,15 +1,15 @@
 const colors = [
-    'brown', 
-    'pink', 
-    'grey', 
-    'violet', 
-    'orange', 
-    'yellow', 
-    'black', 
-    'green', 
-    'red', 
-    'gold', 
-    'silver', 
+    'brown',
+    'pink',
+    'grey',
+    'violet',
+    'orange',
+    'yellow',
+    'black',
+    'green',
+    'red',
+    'gold',
+    'silver',
     'blue',
     'white'
 ];
@@ -45,7 +45,7 @@ var poll = {
     q24: null,
     q25: [],
     q26: [],
-    q27: [],                
+    q27: [],
     q28: [],
     q29: [],
     q30: [],
@@ -60,65 +60,93 @@ var poll = {
     q39: [],
     q40: [],
     q41: [],
-};   
+};
 
 /**
  * Init first seccion 1
- */ 
-function initFistSection() {
-
-    $('.first-section i').hide();
-    $('.first-section .grid-item').on('click', function() {
-        $('.first-section i').hide();
-        $(this).find('i').show();
+ */
+var initFistSection = function () {
+    $('.first-section .grid-item').on('click', function () {
+        $('.first-section i').css('visibility', 'hidden');
+        $(this).find('i').css('visibility', 'visible');
+        // $('.first-section i').hide();
+        // $(this).find('i').show();
         $('.first-section .grid-item').removeClass('selected');
         $(this).addClass('selected');
         poll['q01'] = $(this).attr('data-color');
         // console.log(poll);
+
     });
 }
 
 /**
  * Init second section
  */
-function initSecondSection() {
-    $('.second-section input:radio').on('change', function() {
-        poll[$(this)[0].name] = $(this)[0].value;        
+var initSecondSection = function () {
+    $('.second-section input:radio').on('change', function () {
+        poll[$(this)[0].name] = $(this)[0].value;
     });
 }
 
 /**
  * Init third section
  */
-function initThirdSection() {
-    $('.thrid-section i').hide();
-    $('.thrid-section .options div').on('click', function() {
-       
-        var colors = poll[$(this).parent()[0].id]; 
-        var color  = $(this).attr('data-color');
+var initThirdSection = function () {
+
+    $('.third-section .options div').on('click', function () {
+        var colors = poll[$(this).parent()[0].id];
+        var color = $(this).attr('data-color');
         var position = colors.indexOf(color);
-        
-        if ( position < 0) {
-            $(this).addClass('selected'); 
-            $(this).find('i').show();
+
+        if (position < 0) {
+            $(this).addClass('selected');
+            $(this).find('i').css('visibility', 'visible');
             colors.push(color);
-       
+
         } else {
 
             $(this).removeClass('selected');
-            $(this).find('i').hide();
+            // $(this).find('i').hide();
+            $(this).find('i').css('visibility', 'hidden');
             colors.splice(position, 1);
-        }    
+        }
     });
 }
+
+/**
+ * Init third section
+ */
+var initFourthSection = function () {
+    var slider = $('.range-slider'),
+        range = $('.range-slider__range'),
+        value = $('.range-slider__value');
+
+    /*
+    slider.each(function () {
+
+        
+    });
+    */
+    value.each(function () {
+        var value = $(this).prev().attr('value');
+        $(this).html(value);
+    });
+
+    range.on('input', function () {
+        $(this).next(value).html(this.value);
+    });
+};
+
+
+
 
 /**
  * Validation 
  */
 function validation() {
     var keys = [];
-    $.each(poll, function(key, val) {
-        if ((Array.isArray(val) && val.length === 0) || !val) 
+    $.each(poll, function (key, val) {
+        if ((Array.isArray(val) && val.length === 0) || !val)
             keys.push(key);
         // console.log(typeof(val));
     });
@@ -127,8 +155,8 @@ function validation() {
 
 function showErrors(errors) {
     let message = "Debe cumplimentar las preguntas: "
-    $.each(errors, function(index, value) {
-        
+    $.each(errors, function (index, value) {
+
         if (index === errors.length - 1)
             message += value.substring(1);
         else
@@ -145,21 +173,24 @@ $(function () {
 
     if (user) {
         poll['email'] = user.email;
-        poll['age']   = user.age;
-        poll['gender'] = user.gender; 
+        poll['age'] = user.age;
+        poll['gender'] = user.gender;
         $('nav a').text("Bienvenid@ " + user.email);
-        
-        
+
+
 
         initFistSection();
 
         initSecondSection();
-    
+
         initThirdSection();
-    
+
+        initFourthSection();
+        
+
         const url = 'http://localhost:8080/new';
         // const url = 'http://ec2-3-83-66-86.compute-1.amazonaws.com:8080/new';
-        $('button').on('click', function() {
+        $('button').on('click', function () {
             var errors = validation();
             if (errors.length === 0)
                 console.log(poll);
@@ -175,15 +206,14 @@ $(function () {
                 },
                 data: JSON.stringify(poll)
             });
-            */ 
+            */
             else
                 showErrors(errors);
-        }); 
-    }
-    else {
+        });
+    } else {
         window.location.href = window.location.origin;
     }
-   
+
 
 
 

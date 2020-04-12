@@ -1,10 +1,5 @@
-#main {
-    display: none;
-}
-
-section {
-    padding: 1rem;
-}
+@import '_range-slider.scss';
+@import '_colors.scss';
 
 .title {
     // text-decoration: underline;
@@ -17,6 +12,9 @@ section {
     text-align: justify;
 }
 
+/**
+ FIRST SECTION
+ */
 .first-section {
     .grid {
         display: grid;
@@ -24,7 +22,8 @@ section {
         grid-template-columns: repeat(4, 1fr);
 
         .grid-item {
-            padding: 1.5rem;
+            // padding: 1.5rem;
+            height: 3rem;
             border-radius: 1rem;
             position: relative;
             border: 2px solid silver;
@@ -34,20 +33,15 @@ section {
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
+                visibility: hidden;
             }
         }
     }
 }
 
-.fourth-section {
-    
-                .question-answers {
-                    display: flex;
-                    justify-content: space-around;
-                }
-
-}
-
+/**
+ SECOND QUESTION
+*/
 .second-section {
     .questions {
         .question-item {
@@ -58,6 +52,7 @@ section {
 
             .question-text {
                 padding: 1rem;
+
                 p {
                     text-align: justify;
                     font-size: 1.1rem;
@@ -74,7 +69,10 @@ section {
     }
 }
 
-.thrid-section>div {
+/**
+ THIRD SECTION
+ */
+.third-section>div {
 
     display: flex;
     padding: .3rem;
@@ -82,7 +80,8 @@ section {
     padding: .5em;
 
     h5 {
-        flex-basis: 35%;
+        min-width: 8rem;
+        flex-shrink: 0;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -90,7 +89,7 @@ section {
     }
 
     .options {
-        flex-basis: 65%;
+        flex-grow: 1;
         padding: 1rem;
         display: grid;
         gap: .5rem;
@@ -107,29 +106,113 @@ section {
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
+                visibility: hidden;
             }
         }
     }
 }
 
+/**
+ FOURTH SECTION
+ */
+ .fourth-section {
+
+    .group-questions {
+        border-bottom: 1px solid silver;
+    }
+
+    .questions {
+        display: grid;
+        gap: 3rem;
+    }
+
+    .question-image {
+        padding: 1rem;
+        text-align: center;
+        img {
+            width: 25%;
+        }
+    }
+
+    .question-text {
+        text-align: center;
+        span {
+            display: none;
+        }
+    }
+
+    .question-item {
+        padding-bottom: 1rem;
+    }
+}
+
+/**
+ FOOTER WITH SEND BUTTON
+ */
 footer p {
     border: 1px solid red;
     color: red;
     margin: 1rem;
 }
 
-@media (min-width: 100px) {
-    .thrid-section {
+.selected {
+    border: 2px solid limegreen !important;
+}
+
+button {
+    font-size: 3em;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+}
+
+
+/*
+ MEDIA QUERIES
+ */
+@media (min-width: 1px) {
+    .title {
+        font-size: 0.95em;
+    }
+
+    .third-section {
+        .options {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .fourth-section {
+        .questions {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+
+@media (min-width: 576px) {
+    .title {
+        font-size: 1.05em;
+    }
+    .third-section {
         .options {
             grid-template-columns: repeat(4, 1fr);
+        }
+    }
+    .fourth-section {
+        .questions {
+            grid-template-columns: repeat(2, 1fr);
         }
     }
 
 }
 
-
-@media (min-width: 600px) {
-    .thrid-section {
+@media (min-width: 768px) {
+    .title {
+        font-size: 1.15rem;
+    }
+    .third-section {
         .options {
             grid-template-columns: repeat(6, 1fr);
         }
@@ -137,7 +220,16 @@ footer p {
 
 }
 
-@media (min-width: 1000px) {
+
+@media (min-width: 992px) {
+    .first-section {
+        .grid {
+            
+            grid-template-columns: repeat(6, 1fr);
+
+        }
+    }
+
     .second-section {
         .questions {
             .question-item {
@@ -145,6 +237,7 @@ footer p {
 
                 .question-text {
                     flex-basis: 50%;
+
                     p {
                         font-size: 1.25rem;
                         font-weight: 300;
@@ -159,9 +252,15 @@ footer p {
         }
     }
 
-    .thrid-section {
+    .third-section {
         .options {
             grid-template-columns: repeat(13, 1fr);
+        }
+    }
+
+    .fourth-section {
+        .questions {
+            grid-template-columns: repeat(3, 1fr);
         }
     }
 
@@ -169,67 +268,3 @@ footer p {
 
 
 
-.selected {
-    border: 2px solid limegreen;
-}
-
-button {
-    font-size: 3em;
-}
-
-footer {
-    text-align: center;
-    padding: 2rem;
-}
-
-.brown {
-    background-color: brown;
-}
-
-.pink {
-    background-color: pink;
-}
-
-.grey {
-    background-color: grey;
-}
-
-.violet {
-    background-color: violet;
-}
-
-.orange {
-    background-color: orange;
-}
-
-.yellow {
-    background-color: yellow;
-}
-
-.black {
-    background-color: black;
-}
-
-.green {
-    background-color: green;
-}
-
-.red {
-    background-color: red;
-}
-
-.gold {
-    background-color: gold;
-}
-
-.silver {
-    background-color: silver;
-}
-
-.blue {
-    background-color: blue;
-}
-
-.white {
-    background-color: white;
-}
