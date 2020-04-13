@@ -218,8 +218,8 @@ $(function () {
         initFourthSection();
         
 
-        const url = 'http://localhost:8080/new';
-        // const url = 'http://ec2-3-83-66-86.compute-1.amazonaws.com:8080/new';
+        // 
+        const url = 'http://ec2-3-83-66-86.compute-1.amazonaws.com:8080/new';
         $('button').on('click', function () {
             var errors = validation();
             if (errors.length === 0) {
