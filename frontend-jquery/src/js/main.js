@@ -231,10 +231,12 @@ $(function () {
                     crossDomain: true,
                     dataType: 'json',
                     success: function(result){
-                        console.log(result);
+                        showErrors([]);
+                        window.location.href = './';
                     },
                     data: JSON.stringify(poll)
-                });                
+                });
+
             } else {
                 showErrors(errors);
             }
