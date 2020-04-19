@@ -43,7 +43,7 @@
         <div class="form-row">
           <div class="col-12 mb-3">
             <label for="email">Correo: </label>
-            <input type="email" class="form-control" id="email" placeholder="Introduzca un correo" value=""  required>
+            <input type="email" class="form-control" id="email" placeholder="Introduzca un correo" value="" required>
             <div class="valid-feedback">
               Ok!
             </div>
@@ -53,39 +53,62 @@
           </div>
           <div class="col-12 mb-3">
             <label for="edad">Edad: </label>
-            <input type="number" class="form-control" id="edad" placeholder="Introduzca su edad" value="" min="18" max="100" required>
+            <input type="number" class="form-control" id="edad" placeholder="Introduzca su edad" value="" min="18"
+              max="100" required>
             <div class="valid-feedback">
               Ok!
             </div>
             <div class="invalid-feedback">
-              Por favor, introduzca la edad
+              Por favor, introduzca la edad (mínimo 18 años)
             </div>
           </div>
-          <div class="mb-3 px-4">
+          <div class="offset-3 mb-3">
             <div class="custom-control custom-radio">
               <input type="radio" class="custom-control-input" id="rdbHombre" name="sexo" value="V" required>
               <label class="custom-control-label" for="rdbHombre">Hombre</label>
               <span class="invalid-feedback">Debe seleccionar hombre o mujer</span>
             </div>
           </div>
-          <div class="mb-3">
+          <div class="offset-1 mb-3">
             <div class="custom-control custom-radio">
               <input type="radio" class="custom-control-input" id="rdbMujer" name="sexo" value="M" required>
               <label class="custom-control-label" for="rdbMujer">Mujer</label>
             </div>
           </div>
+          <div class="col-12 mb-3">
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <label class="form-check-label" for="invalidCheck">
+                  <p>He leído la información y autorizo al uso de los datos para la presente investigación</p>
+                  <a tabindex="0"
+                    href="#" 
+                    class="text-primary"
+                    role="button" 
+                    data-toggle="popover" 
+                    data-trigger="focus"
+                    data-placement="top"
+                    title="Estoy de acuerdo con los términos y condiciones"
+                    data-content="A través de la respuesta a este cuestionario, doy mi consentimiento para usar mis datos DE FORMA ANÓNIMA en un proyecto de investigación acerca de la Psicología del color y su vinculación con el Marketing">(Leer consentimiento informado)
+                  </a>
+                </label>
+                <div class="invalid-feedback">
+                  Debe estar deacuerdo antes de realizar la encuesta
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
         <div class="col-12 text-center mb-3">
           <button class="btn btn-outline-success btn-lg" type="submit">
-            Realizar encuesta 
+            Realizar encuesta
             <i class="fa fa-paper-plane" aria-hidden="true"></i>
           </button>
           <p id="message" style="color: red"></p>
         </div>
-        
+
       </form>
-
-
     </main>
   </div>
 
@@ -98,6 +121,8 @@
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function () {
       'use strict';
+
+
       window.addEventListener('load', function () {
         // Fetch all the forms we want to apply custom Bootstrap validation styles to
         var forms = document.getElementsByClassName('needs-validation');
@@ -113,22 +138,23 @@
               user.gender = document.querySelector('input[name="sexo"]:checked').value;
               const url = 'http://ec2-3-83-66-86.compute-1.amazonaws.com:8080/query';
               $.ajax({
-                    url: url,
-                    type: 'POST',
-                    contentType: "application/json",
-                    crossDomain: true,
-                    dataType: 'json',
-                    success: function(result){
-                        if (!result.exist) {
-                          console.log(user);
-                          localStorage.setItem('user', JSON.stringify(user));
-                          window.location.href = './main.html';
-                        } else {
-                          document.querySelector('#message').innerHTML   = "Esta persona ya ha realizado la encuesta";
-                        }
-                    },
-                    data: JSON.stringify(user)
-                });
+                url: url,
+                type: 'POST',
+                contentType: "application/json",
+                crossDomain: true,
+                dataType: 'json',
+                success: function (result) {
+                  if (!result.exist) {
+                    console.log(user);
+                    localStorage.setItem('user', JSON.stringify(user));
+                    window.location.href = './main.html';
+                  } else {
+                    document.querySelector('#message').innerHTML =
+                      "Esta persona ya ha realizado la encuesta";
+                  }
+                },
+                data: JSON.stringify(user)
+              });
 
               // console.log(user);
               // localStorage.setItem('user', JSON.stringify(user));
@@ -138,7 +164,13 @@
           }, false);
         });
       }, false);
+
+
     })();
+
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
   </script>
 
 </body>
