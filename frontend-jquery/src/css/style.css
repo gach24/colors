@@ -127,25 +127,27 @@ input::-moz-focus-outer {
 /**
  FIRST SECTION
  */
-.first-section .grid {
-  display: -ms-grid;
-  display: grid;
-  grid-gap: .5rem;
-  -ms-grid-columns: (1fr)[4];
-  grid-template-columns: repeat(4, 1fr); }
-  .first-section .grid .grid-item {
-    height: 3rem;
-    border-radius: 1rem;
-    position: relative;
-    border: 2px solid silver; }
-    .first-section .grid .grid-item i {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      visibility: hidden; }
+.first-section {
+  margin-bottom: 2rem; }
+  .first-section .grid {
+    display: -ms-grid;
+    display: grid;
+    grid-gap: .5rem;
+    -ms-grid-columns: (1fr)[4];
+    grid-template-columns: repeat(4, 1fr); }
+    .first-section .grid .grid-item {
+      height: 3rem;
+      border-radius: 1rem;
+      position: relative;
+      border: 2px solid silver; }
+      .first-section .grid .grid-item i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        visibility: hidden; }
 
 /**
  SECOND QUESTION

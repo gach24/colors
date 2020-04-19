@@ -80,15 +80,15 @@ var poll = {
     q58: 1,
     q59: 1,
     q60: 1,
-    q61: 1, 
+    q61: 1,
     q62: 1,
-    q63: 1, 
+    q63: 1,
     q64: 1,
-    q65: 1, 
+    q65: 1,
     q66: 1,
-    q67: 1, 
+    q67: 1,
     q68: 1,
-    q69: 1, 
+    q69: 1,
 };
 
 /**
@@ -207,7 +207,9 @@ $(function () {
         poll['gender'] = user.gender;
         $('nav a').text("Bienvenid@ " + user.email);
 
-
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        })
 
         initFistSection();
 
@@ -216,9 +218,7 @@ $(function () {
         initThirdSection();
 
         initFourthSection();
-        
 
-        // 
         const url = 'http://ec2-3-83-66-86.compute-1.amazonaws.com:8080/new';
         $('button').on('click', function () {
             var errors = validation();
@@ -230,9 +230,10 @@ $(function () {
                     contentType: "application/json",
                     crossDomain: true,
                     dataType: 'json',
-                    success: function(result){
+                    success: function (result) {
                         showErrors([]);
-                        window.location.href = './';
+                        localStorage.clear();
+                        window.location.href = './cheers.html';
                     },
                     data: JSON.stringify(poll)
                 });
@@ -244,8 +245,4 @@ $(function () {
     } else {
         window.location.href = window.location.origin;
     }
-
-
-
-
 });
