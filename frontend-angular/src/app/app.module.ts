@@ -3,14 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { QuestionsComponent } from './questions/questions.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { LoginComponent } from './pages/login/login.component';
+import { QuizComponent } from './pages/quiz/quiz.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    QuestionsComponent
+    NavbarComponent,
+    LoginComponent,
+    QuizComponent,
+
   ],
   imports: [
     BrowserModule,
